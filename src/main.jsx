@@ -58,7 +58,9 @@ function App () {
 }
 
 function Header () {
-  return <h1 style={{ color: 'red' }}>Fast Bear Pizza</h1>
+  const style = { color: 'red', fontSize: '50px', textTransform: 'uppercase' }
+
+  return <h1 style={style}>Fast Bear Pizza</h1>
 }
 
 function Menu () {
@@ -79,11 +81,11 @@ function Footer () {
   const isOpen = hour >= openHour && hour <= closeHour
   console.log(isOpen)
 
-  if (hour >= openHour && hour <= closeHour) {
-    alert('We are currently open')
-  } else {
-    alert('Sorry, we are closed')
-  }
+  // if (hour >= openHour && hour <= closeHour) {
+  //   alert('We are currently open')
+  // } else {
+  //   alert('Sorry, we are closed')
+  // }
   return (
     <div>
       <footer>{new Date().toLocaleDateString()}.We are currently open</footer>
