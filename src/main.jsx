@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
+import './index.css'
 
 const pizzaData = [
   {
@@ -49,7 +50,7 @@ const pizzaData = [
 
 function App () {
   return (
-    <div>
+    <div className='container'>
       <Header />
       <Menu />
       <Footer />
@@ -58,18 +59,46 @@ function App () {
 }
 
 function Header () {
-  const style = { color: 'red', fontSize: '50px', textTransform: 'uppercase' }
+  const style = { }
+  // const style = { color: 'red', fontSize: '50px', textTransform: 'uppercase' }
 
-  return <h1 style={style}>Fast Bear Pizza</h1>
+  return (
+    <header className='header'>
+      <h1 style={style}>Fast Bear Pizza</h1>
+    </header>
+  )
 }
 
 function Menu () {
   return (
-    <div>
+    <main className='menu'>
       <h2>Our menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      <Pizza
+        name='Pizza Funghi'
+        ingredients='Tomato, mozarella, mushrooms, and onion'
+        photoName='/pizzas/funghi.jpg'
+        price={10}
+      />
+
+      <Pizza
+        name='Pizza Spinaci'
+        ingredients='Tomato, mozarella, spinach, and ricotta cheese'
+        photoName='/pizzas/spinaci.jpg'
+        price={15}
+      />
+    </main>
+  )
+}
+
+function Pizza (props) {
+  return (
+    <div className='pizza'>
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price + 2}</span>
+      </div>
     </div>
   )
 }
@@ -87,19 +116,7 @@ function Footer () {
   //   alert('Sorry, we are closed')
   // }
   return (
-    <div>
-      <footer>{new Date().toLocaleDateString()}.We are currently open</footer>
-    </div>
-  )
-}
-
-function Pizza () {
-  return (
-    <div>
-      <img src='/pizzas/funghi.jpg' alt='pizza funghi' />
-      <h2>Pizza Funghi</h2>
-      <p>Tomato, mozarella, mushrooms, and onion</p>
-    </div>
+    <footer className='footer'>{new Date().toLocaleDateString()}.We are currently open</footer>
   )
 }
 
